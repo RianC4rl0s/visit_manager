@@ -1,0 +1,28 @@
+<%= form_with(model: sector) do |form| %>
+  <% if sector.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(sector.errors.count, "error") %> prohibited this sector from being saved:</h2>
+      <ul>
+        <% sector.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+  <%# <div> 
+    <%= form.label :division_id, style: "display: block" %>
+  <%# 
+    <%= form.text_field :division_id %>
+  <%# </div> %>
+  <div class="form-group">
+    <%= form.label :division_id, 'Selecione uma divisão' %>
+    <%= form.collection_select :division_id, Division.all, :id, :name, { prompt: 'Escolha uma divisão' }, class: 'form-control' %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
