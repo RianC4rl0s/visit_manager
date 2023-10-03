@@ -1,3 +1,4 @@
+<%= render partial: "shared/appBar" %>
 <p style="color: green"><%= notice %></p>
 
 <%= render @division %>
@@ -6,5 +7,5 @@
   <%= link_to "Edit this division", edit_division_path(@division) %> |
   <%= link_to "Back to divisions", divisions_path %>
 
-  <%= button_to "Destroy this division", @division, method: :delete %>
+  <%= button_to "Destroy this division", @division, method: :delete, class:"btn btn-danger" %>
 </div>

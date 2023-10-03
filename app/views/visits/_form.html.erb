@@ -32,7 +32,7 @@
   <div>
     <%= form.label :visitor_cpf, "CPF do Visitante", style: "display: block" %>
     <%= form.text_field :visitor_cpf %>
-    <button id="check-visitor" type="button">Verificar Visitante</button>
+    <button id="check-visitor" type="button" class="btn btn-primary"><i class="bi bi-search "></i></button>
   </div>
   <div>
     <%= form.label :visitor_name, "Nome do Visitante", style: "display: block" %>
@@ -55,7 +55,7 @@
     <%= form.collection_select :sector_id, Sector.all, :id, :name, { prompt: 'Escolha um Setor' }, class: 'form-control' %>
   </div>
   <div>
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-success"%>
   </div>
   <script>
     $(document).ready(function() {

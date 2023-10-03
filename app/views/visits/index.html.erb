@@ -1,7 +1,8 @@
+<%= render partial: "shared/appBar" %>
 <p style="color: green"><%= notice %></p>
-
-<h1>Visits</h1>
-
+<h1>Visitas</h1>
+<%= link_to "New visit", new_visit_path %>
+<hr/>
 <div id="visits">
   <% @visits.each do |visit| %>
     <%= render visit %>
@@ -10,5 +11,3 @@
     </p>
   <% end %>
 </div>
-
-<%= link_to "New visit", new_visit_path %>

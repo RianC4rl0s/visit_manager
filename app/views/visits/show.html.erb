@@ -1,3 +1,4 @@
+<%= render partial: "shared/appBar" %>
 <p style="color: green"><%= notice %></p>
 
 <%= render @visit %>
@@ -6,5 +7,5 @@
   <%= link_to "Edit this visit", edit_visit_path(@visit) %> |
   <%= link_to "Back to visits", visits_path %>
 
-  <%= button_to "Destroy this visit", @visit, method: :delete %>
+  <%= button_to "Destroy this visit", @visit, method: :delete, class:"btn btn-danger" %>
 </div>

@@ -1,14 +1,34 @@
+<%= render partial: "shared/appBar" %>
 <p style="color: green"><%= notice %></p>
-
 <h1>Sectors</h1>
-
 <div id="sectors">
-  <% @sectors.each do |sector| %>
-    <%= render sector %>
-    <p>
-      <%= link_to "Show this sector", sector %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New sector", new_sector_path %>
+  <%# @sectors.each do |sector| %>
+    <%#= render sector %>
+    <%# <p> %>
+    <%#= link_to "Show this sector", sector %>
+    <%# </p> %>
+    <%# end %>
+    <%= link_to "Novo Setor", new_sector_path %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Nome</th>
+          <th scope="col">Unidade</th>
+          <th scope="col">Opções</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @sectors.each do |sector| %>
+          <tr>
+            <td scope="row"> <%= sector.id %></td>
+            <td> <%= sector.name %></td>
+            <td> <%= "#{sector.division.name}" %></td>
+            <td><%= link_to "Edit", sector %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+  </div>
+  <%#= link_to "New sector", new_sector_path %>

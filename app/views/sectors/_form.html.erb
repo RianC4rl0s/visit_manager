@@ -23,6 +23,6 @@
     <%= form.collection_select :division_id, Division.all, :id, :name, { prompt: 'Escolha uma divisão' }, class: 'form-control' %>
   </div>
   <div>
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-success" %>
   </div>
 <% end %>
