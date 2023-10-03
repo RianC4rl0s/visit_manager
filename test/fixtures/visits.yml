@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  visit_date: 2023-10-03 15:35:53
+  visitor: one
+  sector: one
+
+two:
+  visit_date: 2023-10-03 15:35:53
+  visitor: two
+  sector: two
