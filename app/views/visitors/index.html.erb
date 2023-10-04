@@ -9,9 +9,9 @@
     <% @visitors.each do |visitor| %>
       <div class="visitor-card">
         <%= render visitor %>
-        <div class="d-flex justify-content-end action-group">
+        <div class="d-flex justify-content-end action-group align-bottom">
           <p>
-            <%= link_to "+", visitor , class:"btn btn-primary " %>
+            <%= link_to "+", visitor , class:"btn btn-primary" %>
           </p>
         </div>
       </div>

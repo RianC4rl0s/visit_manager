@@ -6,7 +6,7 @@
     <%= link_to "Nova Visita", new_visit_path, class:"btn btn-primary mx-2" %>
   </div>
   <hr/>
-  <% @visits.each do |visit| %>
+  <% @visits.reverse().each do |visit| %>
     <%= render visit %>
     <p>
       <%= link_to "+", visit %>
