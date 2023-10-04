@@ -1,10 +1,9 @@
 <%= render partial: "shared/appBar" %>
-<h1>New sector</h1>
-
-<%= render "form", sector: @sector %>
-
-<br>
-
-<div>
-  <%= link_to "Back to sectors", sectors_path %>
+<div class="page-container">
+  <h1>New sector</h1>
+  <%= render "form", sector: @sector %>
+  <br>
+  <div>
+    <%= link_to "Back to sectors", sectors_path %>
+  </div>
 </div>

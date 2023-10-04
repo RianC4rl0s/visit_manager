@@ -1,10 +1,9 @@
 <%= render partial: "shared/appBar" %>
-<h1>New visitor</h1>
-
-<%= render "form", visitor: @visitor %>
-
-<br>
-
-<div>
-  <%= link_to "Back to visitors", visitors_path %>
+<div class="page-container">
+  <h1>New visitor</h1>
+  <div>
+    <%= link_to "Back to visitors", visitors_path %>
+  </div>
+  <%= render "form", visitor: @visitor %>
+  <br>
 </div>

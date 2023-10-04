@@ -1,7 +1,7 @@
 <%= render partial: "shared/appBar" %>
-<p style="color: green"><%= notice %></p>
-<h1>Setores</h1>
-<div id="sectors">
+<div id="sectors" class="page-container" >
+  <p style="color: green"><%= notice %></p>
+  <h1>Setores</h1>
   <%# @sectors.each do |sector| %>
     <%#= render sector %>
     <%# <p> %>
@@ -11,25 +11,27 @@
     <div class="d-flex flex-row-reverse">
       <%= link_to "Novo Setor", new_sector_path , class:"btn btn-primary" %>
     </div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col"></th>
-          <th scope="col">Nome</th>
-          <th scope="col">Unidade</th>
-          <th scope="col">Opções</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @sectors.each do |sector| %>
+    <div class="round-card">
+      <table class="table">
+        <thead>
           <tr>
-            <td scope="row"> <%= sector.id %></td>
-            <td> <%= sector.name %></td>
-            <td> <%= "#{sector.division.name}" %></td>
-            <td><%= link_to "Edit", sector %></td>
+            <th scope="col"></th>
+            <th scope="col">Nome</th>
+            <th scope="col">Unidade</th>
+            <th scope="col">Opções</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @sectors.each do |sector| %>
+            <tr>
+              <td scope="row"> <%= sector.id %></td>
+              <td> <%= sector.name %></td>
+              <td> <%= "#{sector.division.name}" %></td>
+              <td><%= link_to "Edit", sector %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
   <%#= link_to "New sector", new_sector_path %>

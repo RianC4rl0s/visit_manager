@@ -1,27 +1,25 @@
-<div id="<%= dom_id visitor %>">
-  <p>
-    <strong>Name:</strong>
+<div id="<%= dom_id visitor %>" class="object-container">
+  <div class="w-full center-items">
+    <%= image_tag(visitor.foto_url.to_s,class:"visitor-picture")  %>
+  </div>
+  <p class="custom-title-1">
+    <%# <strong>Nome:</strong> %>
     <%= visitor.name %>
   </p>
-
   <p>
     <strong>Cpf:</strong>
     <%= visitor.cpf %>
   </p>
-
   <p>
     <strong>Rg:</strong>
     <%= visitor.rg %>
   </p>
-
   <p>
     <strong>Telefone:</strong>
     <%= visitor.telefone %>
   </p>
-
   <p>
-    <strong>Foto:</strong>
-    <%# <%= visitor.foto %> %>
+    <%# <strong>Foto:</strong> %>
+    <%= visitor.foto %>
   </p>
-  <%= image_tag(visitor.foto_url.to_s) %>
 </div>

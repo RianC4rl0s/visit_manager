@@ -1,15 +1,15 @@
 <%= render partial: "shared/appBar" %>
-<p style="color: green"><%= notice %></p>
-<h1>Visitas</h1>
-<div class="d-flex flex-row-reverse">
-  <%= link_to "Nova Visita", new_visit_path, class:"btn btn-primary mx-2" %>
-</div>
-<hr/>
-<div id="visits">
+<div id="visits" class="page-container">
+  <p style="color: green"><%= notice %></p>
+  <h1>Visitas</h1>
+  <div class="d-flex flex-row-reverse ">
+    <%= link_to "Nova Visita", new_visit_path, class:"btn btn-primary mx-2" %>
+  </div>
+  <hr/>
   <% @visits.each do |visit| %>
     <%= render visit %>
     <p>
-      <%= link_to "Show this visit", visit %>
+      <%= link_to "+", visit %>
     </p>
   <% end %>
 </div>
