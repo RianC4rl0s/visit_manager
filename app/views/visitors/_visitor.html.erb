@@ -21,7 +21,7 @@
 
   <p>
     <strong>Foto:</strong>
-    <%= visitor.foto %>
+    <%# <%= visitor.foto %> %>
   </p>
-
+  <%= image_tag(visitor.foto_url.to_s) %>
 </div>

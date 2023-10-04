@@ -2,7 +2,6 @@
   <% if visitor.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(visitor.errors.count, "error") %> prohibited this visitor from being saved:</h2>
-
       <ul>
         <% visitor.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,36 +9,121 @@
       </ul>
     </div>
   <% end %>
-
   <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
-
   <div>
     <%= form.label :cpf, style: "display: block" %>
     <%= form.text_field :cpf %>
   </div>
-
   <div>
     <%= form.label :rg, style: "display: block" %>
     <%= form.text_field :rg %>
   </div>
-
   <div>
     <%= form.label :telefone, style: "display: block" %>
     <%= form.text_field :telefone %>
   </div>
-
   <div>
-    <%= form.label :foto, style: "display: block" %>
-    <%= form.text_area :foto %>
+    <%#= form.label :foto, style: "display: block" %>
+    <%#= form.text_area :foto %>
   </div>
- <%# <div class="form-group"> %>
-    <%#= form.label :sectors %>
-    <%#= form.collection_select :sector_ids, Sector.all, :id, :name, {}, { multiple: true, class: 'form-control' } %>
+  <div class="field">
+    <%#= form.label :foto %>
+    <%= form.file_field :foto,style: "display:none;", id: "webcam_photo_field" %>
+  </div>
+  <video id="webcam" autoplay playsinline></video>
+  <canvas id="canvas" width="640" height="480"></canvas>
+  <!-- Botão para capturar a imagem -->
+  <button id="captureButton" type="button">Capturar Imagem</button>
+  <%#= image_tag(visitor.foto_url.to_s) %>
+  <%# <div class="form-group"> %>
+  <%#= form.label :sectors %>
+  <%#= form.collection_select :sector_ids, Sector.all, :id, :name, {}, { multiple: true, class: 'form-control' } %>
   <%# </div> %>
   <div>
     <%= form.submit class:"btn btn-success"%>
   </div>
+  <script>
+    // Acesso à webcam
+    // navigator.mediaDevices
+    // .getUserMedia({ video: true })
+    // .then(function (stream) {
+    //   // Associar o stream da webcam ao elemento <video>
+    //   var videoElement = document.getElementById("webcam");
+    //   videoElement.srcObject = stream;
+    // })
+    // .catch(function (error) {
+    //   console.error("Erro ao acessar a webcam: ", error);
+    // });
+    document.addEventListener("DOMContentLoaded", function () {
+            var videoElement = document.getElementById("webcam");
+            var canvasElement = document.getElementById("canvas");
+            var captureButton = document.getElementById("captureButton");
+            var webcamPhotoField = document.getElementById("webcam_photo_field");
+            if (videoElement && canvasElement && captureButton) {
+                // Acesso à webcam
+                navigator.mediaDevices
+                    .getUserMedia({ video: true })
+                    .then(function (stream) {
+                        // Associar o stream da webcam ao elemento <video>
+                        videoElement.srcObject = stream;
+                    })
+                    .catch(function (error) {
+                        console.error("Erro ao acessar a webcam: ", error);
+                    });
+
+                // Capturar a imagem quando o botão for clicado
+                captureButton.addEventListener("click", function () {
+                    var context = canvasElement.getContext("2d");
+                    context.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
+
+                    canvasElement.toBlob(function (blob) {
+                    var file = new File([blob], "webcam_photo.jpg", { type: "image/jpeg" });
+
+                    // Preencher o campo de arquivo oculto com a imagem
+                    // webcamPhotoField.files = [file];
+                    var fileList = new DataTransfer();
+                    fileList.items.add(file);
+
+            // Atribuir a lista de arquivos falsos ao campo de arquivo
+                    webcamPhotoField.files = fileList.files;
+                    }, "image/jpeg");
+                    // Agora, você pode usar o contexto do canvas para manipular a imagem capturada
+                });
+            }
+        });
+    document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "hidden") {
+        // Página ficou invisível (usuário saiu da tela)
+        stopCameraStream();
+    } else if (document.visibilityState === "visible") {
+        // Página ficou visível novamente (usuário voltou à tela)
+        startCameraStream();
+    }
+    });
+
+    function startCameraStream() {
+    navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then(function (stream) {
+            // Associar o stream da webcam ao elemento <video>
+            videoElement.srcObject = stream;
+        })
+        .catch(function (error) {
+            console.error("Erro ao acessar a webcam: ", error);
+        });
+    }
+
+    function stopCameraStream() {
+    if (videoElement.srcObject) {
+        var tracks = videoElement.srcObject.getTracks();
+        tracks.forEach(function (track) {
+            track.stop();
+        });
+        videoElement.srcObject = null;
+    }
+    }
+  </script>
 <% end %>
