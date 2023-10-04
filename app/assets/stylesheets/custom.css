@@ -7,6 +7,11 @@ input {
     margin: 4px;
 }
 
+.icon-white{
+    color: white;
+    font-weight: 600;
+}
+
 .custom-link {
     color: white;
     text-decoration: none;

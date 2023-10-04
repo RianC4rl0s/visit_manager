@@ -26,16 +26,21 @@
             <li><a class="dropdown-item" href="/divisions">Unidades</a></li>
             <li><hr class="dropdown-divider"></li>
             <li>
-              <%#= link_to "Sair", destroy_user_session_path, :method => :delete  if user_signed_in? %>
-              <%= form_for(current_user, url: destroy_user_session_path, method: :delete) do |f| %>
-                <div class="d-flex justify-content-center">
-                  <%= f.submit "Sair" ,class:"btn btn-link custom-link" %>
-                </div>
-              <% end %>
+              <%= link_to "Sair", destroy_user_session_path, :method => :delete  if user_signed_in? %>
             </li>
             <%# <li><a class="dropdown-item" href="#">Something else here</a></li> %>
           </ul>
         </li>
+        <%= form_for(current_user, url: destroy_user_session_path, method: :delete) do |f| %>
+          <div class="d-flex justify-content-center">
+            <%#= f.submit "Sair" ,class:"btn btn-link custom-link" %>
+            <%# <i class="bi bi-box-arrow-in-left"></i> %>
+            <%= f.submit "Sair", class: "btn btn-link custom-link" do %>
+              <i class="bi bi-box-arrow-in-left icon-white"></i>
+              Sair
+            <% end %>
+          </div>
+        <% end %>
       </ul>
       <%# <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
