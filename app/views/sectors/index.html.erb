@@ -1,6 +1,6 @@
 <%= render partial: "shared/appBar" %>
 <p style="color: green"><%= notice %></p>
-<h1>Sectors</h1>
+<h1>Setores</h1>
 <div id="sectors">
   <%# @sectors.each do |sector| %>
     <%#= render sector %>
@@ -8,7 +8,9 @@
     <%#= link_to "Show this sector", sector %>
     <%# </p> %>
     <%# end %>
-    <%= link_to "Novo Setor", new_sector_path %>
+    <div class="d-flex flex-row-reverse">
+      <%= link_to "Novo Setor", new_sector_path , class:"btn btn-primary" %>
+    </div>
     <table class="table">
       <thead>
         <tr>
@@ -29,6 +31,5 @@
         <% end %>
       </tbody>
     </table>
-    
   </div>
   <%#= link_to "New sector", new_sector_path %>

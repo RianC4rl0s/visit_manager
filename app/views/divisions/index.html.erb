@@ -1,15 +1,32 @@
 <%= render partial: "shared/appBar" %>
 <p style="color: green"><%= notice %></p>
-
-<h1>Divisions</h1>
-
+<h1>Unidades</h1>
 <div id="divisions">
-  <% @divisions.each do |division| %>
-    <%= render division %>
-    <p>
-      <%= link_to "Show this division", division %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New division", new_division_path %>
+  <%# @divisions.each do |division| %>
+     <%#= render division %> 
+    <%# <p> %>
+    <%#= link_to "Show this division", division %>
+    <%# </p> %>
+    <%# end %>
+    <div class="d-flex flex-row-reverse">
+      <%= link_to "Nova Unidade", new_division_path,class:"btn btn-primary mx-2"%>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Nome</th>
+          <th scope="col">Opções</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @divisions.each do |division| %>
+          <tr>
+            <td scope="row"> <%= division.id %></td>
+            <td> <%= division.name %></td>
+            <td><%= link_to "Editar", division %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>

@@ -1,8 +1,19 @@
 /* input[type="text"] { */
-input{
+input {
     /* Estilos para todos os campos de texto aqui */
     border: 1px solid #ccc;
     padding: 5px;
     border-radius: 5px;
     margin: 4px;
+}
+
+.custom-link {
+    color: white;
+    text-decoration: none;
+    transition: all 300ms;
+}
+
+.custom-link:hover {
+    color: rgb(170, 170, 170);
+    /* background   : #ccc  ; */
 }
