@@ -33,6 +33,7 @@
     <%#= form.label :foto %>
     <%= form.file_field :foto,style: "display:none;", id: "webcam_photo_field" %>
   </div>
+  <%# <button id="refreshButton">Ligar WebCam</button> %>
   <div>
     <video id="webcam" width="320" height="240" autoplay playsinline class="rounded"></video>
     <canvas id="canvas" width="320" height="240" class="rounded"></canvas>
@@ -96,5 +97,12 @@
                 });
             }
         });
+        function refreshPage() {
+            location.reload();
+        }
+
+        // Adicione um ouvinte de evento ao botão
+        var refreshButton = document.getElementById('refreshButton');
+        refreshButton.addEventListener('click', refreshPage);
   </script>
 <% end %>
