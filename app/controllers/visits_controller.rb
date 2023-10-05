@@ -22,6 +22,7 @@ class VisitsController < ApplicationController
   # POST /visits or /visits.json
   def create
     @visit = Visit.new(visit_params)
+    @visit.employee_id = nil if params[:visit][:employee_id].blank?
     if params[:visit][:visitor_cpf].present?
       existing_visitor = Visitor.find_by(cpf: params[:visit][:visitor_cpf])
 
@@ -31,7 +32,10 @@ class VisitsController < ApplicationController
         # Se o visitante não existir, crie um novo
         new_visitor = Visitor.create(
           cpf: params[:visit][:visitor_cpf],
-          name: params[:visit][:visitor_name] # Você pode ajustar isso conforme necessário
+          name: params[:visit][:visitor_name], 
+          rg: params[:visit][:visitor_rg], 
+          telefone: params[:visit][:visitor_telefone],
+          foto: params[:visit][:visitor_foto] 
         )
         @visit.visitor = new_visitor
       end
