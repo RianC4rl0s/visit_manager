@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_03_183553) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_05_160818) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,19 +20,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_03_183553) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "employees", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "cpf"
+    t.bigint "sector_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sector_id"], name: "index_employees_on_sector_id"
+  end
+
   create_table "sectors", force: :cascade do |t|
     t.string "name"
     t.bigint "division_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["division_id"], name: "index_sectors_on_division_id"
-  end
-
-  create_table "sectors_visitors", id: false, force: :cascade do |t|
-    t.bigint "visitor_id", null: false
-    t.bigint "sector_id", null: false
-    t.index ["sector_id", "visitor_id"], name: "index_sectors_visitors_on_sector_id_and_visitor_id"
-    t.index ["visitor_id", "sector_id"], name: "index_sectors_visitors_on_visitor_id_and_sector_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,8 +52,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_03_183553) do
 
   create_table "visitors", force: :cascade do |t|
     t.string "name"
-    t.string "cpf"
-    t.string "rg"
+    t.string "cpf", null: false
+    t.string "rg", null: false
     t.string "telefone"
     t.text "foto"
     t.datetime "created_at", null: false
@@ -63,11 +66,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_03_183553) do
     t.bigint "sector_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "employee_id", null: false
+    t.index ["employee_id"], name: "index_visits_on_employee_id"
     t.index ["sector_id"], name: "index_visits_on_sector_id"
     t.index ["visitor_id"], name: "index_visits_on_visitor_id"
   end
 
+  add_foreign_key "employees", "sectors"
   add_foreign_key "sectors", "divisions"
+  add_foreign_key "visits", "employees"
   add_foreign_key "visits", "sectors"
   add_foreign_key "visits", "visitors"
 end

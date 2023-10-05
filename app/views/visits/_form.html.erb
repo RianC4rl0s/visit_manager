@@ -13,22 +13,18 @@
     <%= form.label :visit_date, style: "display: block" %>
     <%= form.datetime_field :visit_date %>
   </div>
-
   <%# <div class="form-group"> %>
   <%#= form.label :visitor_id, 'Selecione um Visitante' %>
   <%#= form.collection_select :visitor_id, Visitor.all, :id, :name, { prompt: 'Escolha um Visitante' }, class: 'form-control' %>
   <%# </div> %>
- 
   <!-- Campos ocultos para armazenar os dados do visitante -->
   <div style="display: none;">
     <%= form.hidden_field :visitor_id %>
-    
   </div>
   <%# <div> %>
   <%#= form.label :sector_id, style: "display: block" %>
   <%#= form.text_field :sector_id %>
   <%# </div> %>
-  
   <div>
     <%= form.label :visitor_cpf, "CPF do Visitante", style: "display: block" %>
     <%= form.text_field :visitor_cpf %>
@@ -54,14 +50,18 @@
     <%#= form.label :foto %>
     <%= form.file_field :foto,style: "display:none;", id: "webcam_photo_field" %>
   </div>
-  <video id="webcam" width="320" height="240" autoplay playsinline></video>
-  <canvas id="canvas" width="320" height="240"></canvas>
-  <!-- Botão para capturar a imagem -->
-  <button id="captureButton" type="button" class="btn btn-primary">Capturar Imagem</button>
   <div class="form-group">
     <%= form.label :sector_id, 'Selecione um Setor' %>
     <%= form.collection_select :sector_id, Sector.all, :id, :name, { prompt: 'Escolha um Setor' }, class: 'form-control' %>
   </div>
+  <div class="form-group">
+    <%= form.label :employee_id, 'Selecione um Funcionário' %>
+    <%= form.collection_select :employee_id, Employee.all, :id, :name, { prompt: 'Escolha um Funcionário' }, class: 'form-control' %>
+  </div>
+  <video id="webcam" width="320" height="240" autoplay playsinline></video>
+  <canvas id="canvas" width="320" height="240"></canvas>
+  <!-- Botão para capturar a imagem -->
+  <button id="captureButton" type="button" class="btn btn-primary">Capturar Imagem</button>
   <div>
     <%= form.submit class:"btn btn-success"%>
   </div>

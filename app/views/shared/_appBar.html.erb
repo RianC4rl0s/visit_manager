@@ -22,11 +22,11 @@
             <span class="navbar-toggler-icon"></span>
           </a>
           <ul class="dropdown-menu ">
-            <li><a class="dropdown-item" href="#">Funcionários</a></li>
+            <li><a class="dropdown-item" href="/employees">Funcionários</a></li>
             <li><a class="dropdown-item" href="/divisions">Unidades</a></li>
             <li><hr class="dropdown-divider"></li>
             <li>
-              <%= link_to "Sair", destroy_user_session_path, :method => :delete  if user_signed_in? %>
+              <%#= link_to "Sair", destroy_user_session_path, :method => :delete  if user_signed_in? %>
             </li>
             <%# <li><a class="dropdown-item" href="#">Something else here</a></li> %>
           </ul>

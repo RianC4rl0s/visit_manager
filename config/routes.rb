@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :employees
   resources :visits
   resources :visitors do
     collection do

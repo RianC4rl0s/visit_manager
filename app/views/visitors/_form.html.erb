@@ -33,8 +33,10 @@
     <%#= form.label :foto %>
     <%= form.file_field :foto,style: "display:none;", id: "webcam_photo_field" %>
   </div>
-  <video id="webcam" width="320" height="240" autoplay playsinline class="rounded"></video>
-  <canvas id="canvas" width="320" height="240" class="rounded"></canvas>
+  <div>
+    <video id="webcam" width="320" height="240" autoplay playsinline class="rounded"></video>
+    <canvas id="canvas" width="320" height="240" class="rounded"></canvas>
+  </div>
   <!-- Botão para capturar a imagem -->
   <button id="captureButton" type="button" class="btn btn-primary">Capturar Imagem</button>
   <%#= image_tag(visitor.foto_url.to_s) %>
@@ -94,6 +96,5 @@
                 });
             }
         });
-    
   </script>
 <% end %>

@@ -1,0 +1,17 @@
+<%= render partial: "shared/appBar" %>
+<div class="page-container">
+<p style="color: green"><%= notice %></p>
+
+<h1>Funcionários</h1>
+
+<%= link_to "Novo Funcionario", new_employee_path, class:"btn btn-primary" %>
+<div id="employees">
+  <% @employees.each do |employee| %>
+    <%= render employee %>
+    <p>
+      <%= link_to "+", employee , class:"btn btn-primary"%>
+    </p>
+  <% end %>
+</div>
+
+</div>
