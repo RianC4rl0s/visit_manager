@@ -9,12 +9,17 @@
   </div>
   
   <div class="field">
-    <%= f.label :name %><br/>
-    <%= f.text_field :name, autofocus: true %>
-  </div>
- <div class="field">
+  <%= f.label :name %><br/>
+  <%= f.text_field :name, autofocus: true %>
+</div>
+ <%# <div class="field"> %>
+  <%#= f.label :role %>
+  <%# <br/> %>
+  <%#= f.select :role, User.roles.keys %>
+<%# </div> %>
+<div class="field">
   <%= f.label :role %><br/>
-  <%= f.select :role, User.roles.keys %>
+  <%= f.select :role, ['att', 'adm', 'emp'] %>
 </div>
 
   <div class="field">

@@ -12,6 +12,18 @@ input {
     font-weight: 600;
 }
 
+.custom-title{
+    height: 100%;
+    color: white;
+    font-weight: 600;
+    font-size: 24;
+    margin-right: 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .custom-link {
     color: white;
     text-decoration: none;

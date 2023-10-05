@@ -18,12 +18,9 @@
   </div>
 
   <div class="field">
-    <%= f.label :role %><br/>
-    <%= f.select :role, User.roles.keys %>
-  </div>
-
-
-
+  <%= f.label :role %><br/>
+  <%= f.select :role, ['att', 'adm', 'emp'] %>
+</div>
 
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
