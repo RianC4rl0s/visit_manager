@@ -11,31 +11,45 @@
             <div class="custom-title">Olá <%= current_user.name %></div>
           <% end %>
         </li>
+        <% if can? :read, Visit %>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/visits">Visitas</a>
         </li>
+        <% end %>
+        <% if can? :read, Visitor %>
         <li class="nav-item">
           <a class="nav-link" href="/visitors">Visitantes</a>
         </li>
+        <% end %>
+        <% if can? :read, Sector %>
         <li class="nav-item">
           <a class="nav-link" href="/sectors">Setores</a>
         </li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <% if can? :read, [Employee, Division] %>
         <li class="nav-item dropdown ">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
           </a>
           <ul class="dropdown-menu ">
+            <% if can? :read, Employee %>
             <li><a class="dropdown-item" href="/employees">Funcionários</a></li>
+            <% end %>
+            <% if can? :read, Division %>
             <li><a class="dropdown-item" href="/divisions">Unidades</a></li>
+            <% end %>
+            
             <li><hr class="dropdown-divider"></li>
+            
             <li>
               <%#= link_to "Sair", destroy_user_session_path, :method => :delete  if user_signed_in? %>
             </li>
             <%# <li><a class="dropdown-item" href="#">Something else here</a></li> %>
           </ul>
         </li>
+        <% end %>
         <%= form_for(current_user, url: destroy_user_session_path, method: :delete) do |f| %>
           <div class="d-flex justify-content-center">
             <%#= f.submit "Sair" ,class:"btn btn-link custom-link" %>

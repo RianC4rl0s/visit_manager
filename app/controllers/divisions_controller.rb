@@ -1,6 +1,6 @@
 class DivisionsController < ApplicationController
   before_action :set_division, only: %i[ show edit update destroy ]
-
+  load_and_authorize_resource
   # GET /divisions or /divisions.json
   def index
     @divisions = Division.all
