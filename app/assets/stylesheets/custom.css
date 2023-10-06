@@ -172,3 +172,7 @@ h2{
 .simple-shadow{
     box-shadow: 2px 2px 15px 5px rgba(0, 0, 0, 0.17);
 }
+.show-visitor{
+    width:400px;
+    margin: auto;
+}

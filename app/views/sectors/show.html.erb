@@ -4,8 +4,8 @@
 <%= render @sector %>
 
 <div>
-  <%= link_to "Edit this sector", edit_sector_path(@sector) %> |
-  <%= link_to "Back to sectors", sectors_path %>
+  <%= link_to "Editar", edit_sector_path(@sector) %> |
+  <%= link_to "Setores", sectors_path %>
 
-  <%= button_to "Destroy this sector", @sector, method: :delete,class:"btn btn-danger" %>
+  <%= button_to "Deletar", @sector, method: :delete,class:"btn btn-danger" %>
 </div>

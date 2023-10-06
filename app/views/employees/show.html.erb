@@ -1,11 +1,10 @@
 <%= render partial: "shared/appBar" %>
-<p style="color: green"><%= notice %></p>
-
-<%= render @employee %>
-
-<div>
-  <%= link_to "Edit this employee", edit_employee_path(@employee) %> |
-  <%= link_to "Back to employees", employees_path %>
-
-  <%= button_to "Destroy this employee", @employee, method: :delete %>
+<div class="page-container">
+  <p style="color: green"><%= notice %></p>
+  <%= render @employee %>
+  <div>
+    <%= link_to "Editar", edit_employee_path(@employee) %> |
+    <%= link_to "Funcionários", employees_path %>
+    <%= button_to "Deletar", @employee, method: :delete , class:"btn btn-danger"%>
+  </div>
 </div>

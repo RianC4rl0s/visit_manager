@@ -27,6 +27,6 @@
     <%= form.collection_select :sector_id, Sector.all, :id, :name, { prompt: 'Escolha um Setor' }, class: 'form-control select-form' %>
   </div>
   <div>
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary" %>
   </div>
 <% end %>
