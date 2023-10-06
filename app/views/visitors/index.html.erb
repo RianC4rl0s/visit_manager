@@ -11,7 +11,7 @@
     <% @visitors.each do |visitor| %>
       <div class="visitor-card">
         <%= render visitor %>
-        <div class="d-flex justify-content-end action-group align-bottom">
+        <div class="d-flex justify-content-end action-group align-bottom mt-auto m-2">
           <p>
             <% if can? :update, Visitor %>
               <%= link_to "+", visitor , class:"btn btn-primary" %>

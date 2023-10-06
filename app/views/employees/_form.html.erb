@@ -24,7 +24,7 @@
 
   <div class="form-group">
     <%= form.label :sector_id, 'Selecione um Setor' %>
-    <%= form.collection_select :sector_id, Sector.all, :id, :name, { prompt: 'Escolha um Setor' }, class: 'form-control' %>
+    <%= form.collection_select :sector_id, Sector.all, :id, :name, { prompt: 'Escolha um Setor' }, class: 'form-control select-form' %>
   </div>
   <div>
     <%= form.submit %>

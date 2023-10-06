@@ -11,7 +11,7 @@
   <% end %>
   <div>
     <%= form.label :visit_date, style: "display: block" %>
-    <%= form.datetime_field :visit_date %>
+    <%= form.datetime_field :visit_date, value: Time.now %>
   </div>
   <%# <div class="form-group"> %>
   <%#= form.label :visitor_id, 'Selecione um Visitante' %>
@@ -52,11 +52,11 @@
   </div>
   <div class="form-group">
     <%= form.label :sector_id, 'Selecione um Setor' %>
-    <%= form.collection_select :sector_id, Sector.all, :id, :name, { prompt: 'Escolha um Setor' }, class: 'form-control' %>
+    <%= form.collection_select :sector_id, Sector.all, :id, :name, { prompt: 'Escolha um Setor' }, class: 'form-control select-form' %>
   </div>
   <div class="form-group">
     <%= form.label :employee_id, 'Selecione um Funcionário' %>
-    <%= form.collection_select :employee_id, Employee.all, :id, :name, { prompt: 'Escolha um Funcionário' }, class: 'form-control' %>
+    <%= form.collection_select :employee_id, Employee.all, :id, :name, { prompt: 'Escolha um Funcionário' }, class: 'form-control select-form' %>
   </div>
   <div>
     <span class="span-title">Caso a camera não apareça abaixo, por favor aperte f5 e caso continue ligada em outra pagina aperte f5 novamente</span>

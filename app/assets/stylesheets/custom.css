@@ -8,6 +8,14 @@ input {
     margin-top: 8px;
     box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
 }
+select {
+    border: 0px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    /* margin: 8px; */
+    margin-top: 8px;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
+}
 input:focus{
     border: solid 1px #ccc;
 }
@@ -80,7 +88,7 @@ h2{
     padding-top: 12px;
     margin: 12px;
     border-radius: 25px;
-    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 15px 1px rgba(0, 0, 0, 0.1);
     overflow-x: hidden;
 }
 
@@ -157,4 +165,10 @@ h2{
     flex-direction: row;
     gap: 12px;
     align-items: center;
+}
+.select-form{
+    width: 300px;
+}
+.simple-shadow{
+    box-shadow: 2px 2px 15px 5px rgba(0, 0, 0, 0.17);
 }
