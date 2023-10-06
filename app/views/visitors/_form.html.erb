@@ -10,7 +10,6 @@
   // .catch(function (error) {
   //   console.error("Erro ao acessar a webcam: ", error);
   // });
-  
 </script>
 <%= form_with(model: visitor) do |form| %>
   <% if visitor.errors.any? %>
@@ -48,6 +47,7 @@
     <%= form.file_field :foto,style: "display:none;", id: "webcam_photo_field" %>
   </div>
   <%# <button id="refreshButton">Ligar WebCam</button> %>
+  <span class="span-title">Caso a camera não apareça abaixo, por favor aperte f5 e caso continue ligada em outra pagina aperte f5 novamente</span>
   <div>
     <video id="webcam" width="320" height="240" autoplay playsinline class="rounded"></video>
     <canvas id="canvas" width="320" height="240" class="rounded"></canvas>

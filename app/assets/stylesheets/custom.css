@@ -23,7 +23,11 @@ input {
     align-items: center;
     justify-content: center;
 }
-
+.span-title{
+    color: red;
+    font-size: 12px;
+    font-weight: 600;
+}
 .custom-link {
     color: white;
     text-decoration: none;
