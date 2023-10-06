@@ -3,13 +3,17 @@
   <p style="color: green"><%= notice %></p>
   <h1>Visitas</h1>
   <div class="d-flex flex-row-reverse ">
-    <%= link_to "Nova Visita", new_visit_path, class:"btn btn-primary mx-2" %>
+    <% if can? :create, Visitor %>
+      <%= link_to "Nova Visita", new_visit_path, class:"btn btn-primary mx-2" %>
+    <% end %>
   </div>
   <hr/>
   <% @visits.reverse().each do |visit| %>
     <%= render visit %>
     <p>
-      <%= link_to "+", visit %>
+      <% if can? :update, Visit %>
+        <%= link_to "+", visit %>
+      <% end %>
     </p>
   <% end %>
 </div>

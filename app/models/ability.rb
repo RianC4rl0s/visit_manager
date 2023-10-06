@@ -7,11 +7,11 @@ class Ability
     if user.role == "adm"
       can :manage, :all
     elsif user.role == "att"
-      can :create, Visitor
-      can :create, Visit
+      can [:create,:read,:update,:destroy], Visitor
+      can [:create,:read,:update,:destroy], Visit
       can [:read, :update], User, id: user.id
     elsif user.role == "emp"
-      can [:read, :update], Visitor #, unit_id: #user.unit_id
+      can [:read], Visitor #, unit_id: #user.unit_id
       can [:read], Visit #, unit_id: #user.unit_id
       # can :notify_visit, Visit, user_id: #user.id
     end

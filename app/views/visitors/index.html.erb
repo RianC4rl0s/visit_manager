@@ -3,7 +3,9 @@
   <p style="color: green"><%= notice %></p>
   <h1>Visitantes</h1>
   <div class="d-flex justify-content-end ">
-    <%= link_to "Novo Visitante", new_visitor_path, class:"btn btn-primary"%>
+    <% if can? :create, Visitor %>
+      <%= link_to "Novo Visitante", new_visitor_path, class:"btn btn-primary"%>
+    <% end %>
   </div>
   <div id="visitors" class="visitor-list">
     <% @visitors.each do |visitor| %>
@@ -11,7 +13,9 @@
         <%= render visitor %>
         <div class="d-flex justify-content-end action-group align-bottom">
           <p>
-            <%= link_to "+", visitor , class:"btn btn-primary" %>
+            <% if can? :update, Visitor %>
+              <%= link_to "+", visitor , class:"btn btn-primary" %>
+            <% end %>
           </p>
         </div>
       </div>
