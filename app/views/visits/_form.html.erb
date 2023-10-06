@@ -1,71 +1,72 @@
-<div class="page-container">
-  <%= form_with(model: visit) do |form| %>
-    <% if visit.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(visit.errors.count, "error") %> prohibited this visit from being saved:</h2>
-        <ul>
-          <% visit.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <div>
-      <%= form.label :visit_date, style: "display: block" %>
-      <%= form.datetime_field :visit_date %>
+<%= form_with(model: visit) do |form| %>
+  <% if visit.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(visit.errors.count, "error") %> prohibited this visit from being saved:</h2>
+      <ul>
+        <% visit.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
     </div>
-    <%# <div class="form-group"> %>
-    <%#= form.label :visitor_id, 'Selecione um Visitante' %>
-    <%#= form.collection_select :visitor_id, Visitor.all, :id, :name, { prompt: 'Escolha um Visitante' }, class: 'form-control' %>
-    <%# </div> %>
-    <!-- Campos ocultos para armazenar os dados do visitante -->
-    <div style="display: none;">
-      <%= form.hidden_field :visitor_id %>
-    </div>
-    <%# <div> %>
-    <%#= form.label :sector_id, style: "display: block" %>
-    <%#= form.text_field :sector_id %>
-    <%# </div> %>
-    <div>
-      <%= form.label :visitor_cpf, "CPF do Visitante", style: "display: block" %>
-      <%= form.text_field :visitor_cpf %>
-      <button id="check-visitor" type="button" class="btn btn-primary"><i class="bi bi-search "></i></button>
-    </div>
-    <div>
-      <%= form.label :visitor_name, "Nome do Visitante", style: "display: block" %>
-      <%= form.text_field :visitor_name %>
-    </div>
-    <div>
-      <%= form.label :visitor_rg, "RG do Visitante", style: "display: block" %>
-      <%= form.text_field :visitor_rg %>
-    </div>
-    <div>
-      <%= form.label :visitor_telefone, "Telefone do Visitante", style: "display: block" %>
-      <%= form.text_field :visitor_telefone %>
-    </div>
-    <div>
-      <%#= form.label :visitor_foto, "Foto do Visitante", style: "display: block" %>
-      <%#= form.text_area :visitor_foto %>
-    </div>
-    <div class="field">
-      <%#= form.label :foto %>
-      <%= form.file_field :visitor_foto,style: "display:none;", id: "webcam_photo_field" %>
-    </div>
-    <div class="form-group">
-      <%= form.label :sector_id, 'Selecione um Setor' %>
-      <%= form.collection_select :sector_id, Sector.all, :id, :name, { prompt: 'Escolha um Setor' }, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= form.label :employee_id, 'Selecione um Funcionário' %>
-      <%= form.collection_select :employee_id, Employee.all, :id, :name, { prompt: 'Escolha um Funcionário' }, class: 'form-control' %>
-    </div>
-    <video id="webcam" width="320" height="240" autoplay playsinline  class="rounded"></video>
-    <canvas id="canvas" width="320" height="240"class="rounded"></canvas>
-    <!-- Botão para capturar a imagem -->
-    <button id="captureButton" type="button" class="btn btn-primary">Capturar Imagem</button>
-    <div>
-      <%= form.submit class:"btn btn-success"%>
-    </div>
+  <% end %>
+  <div>
+    <%= form.label :visit_date, style: "display: block" %>
+    <%= form.datetime_field :visit_date %>
+  </div>
+  <%# <div class="form-group"> %>
+  <%#= form.label :visitor_id, 'Selecione um Visitante' %>
+  <%#= form.collection_select :visitor_id, Visitor.all, :id, :name, { prompt: 'Escolha um Visitante' }, class: 'form-control' %>
+  <%# </div> %>
+  <!-- Campos ocultos para armazenar os dados do visitante -->
+  <div style="display: none;">
+    <%= form.hidden_field :visitor_id %>
+  </div>
+  <%# <div> %>
+  <%#= form.label :sector_id, style: "display: block" %>
+  <%#= form.text_field :sector_id %>
+  <%# </div> %>
+  <div>
+    <%= form.label :visitor_cpf, "CPF do Visitante", style: "display: block" %>
+    <%= form.text_field :visitor_cpf %>
+    <button id="check-visitor" type="button" class="btn btn-primary"><i class="bi bi-search "></i></button>
+  </div>
+  <div>
+    <%= form.label :visitor_name, "Nome do Visitante", style: "display: block" %>
+    <%= form.text_field :visitor_name %>
+  </div>
+  <div>
+    <%= form.label :visitor_rg, "RG do Visitante", style: "display: block" %>
+    <%= form.text_field :visitor_rg %>
+  </div>
+  <div>
+    <%= form.label :visitor_telefone, "Telefone do Visitante", style: "display: block" %>
+    <%= form.text_field :visitor_telefone %>
+  </div>
+  <div>
+    <%#= form.label :visitor_foto, "Foto do Visitante", style: "display: block" %>
+    <%#= form.text_area :visitor_foto %>
+  </div>
+  <div class="field">
+    <%#= form.label :foto %>
+    <%= form.file_field :visitor_foto,style: "display:none;", id: "webcam_photo_field" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :sector_id, 'Selecione um Setor' %>
+    <%= form.collection_select :sector_id, Sector.all, :id, :name, { prompt: 'Escolha um Setor' }, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :employee_id, 'Selecione um Funcionário' %>
+    <%= form.collection_select :employee_id, Employee.all, :id, :name, { prompt: 'Escolha um Funcionário' }, class: 'form-control' %>
+  </div>
+  <div>
+    <span class="span-title">Caso a camera não apareça abaixo, por favor aperte f5 e caso continue ligada em outra pagina aperte f5 novamente</span>
+  </div>
+  <video id="webcam" width="320" height="240" autoplay playsinline  class="rounded"></video>
+  <canvas id="canvas" width="320" height="240"class="rounded"></canvas>
+  <!-- Botão para capturar a imagem -->
+  <button id="captureButton" type="button" class="btn btn-primary">Capturar Imagem</button>
+  <div>
+    <%= form.submit class:"btn btn-success"%>
   </div>
   <script>
     $(document).ready(function() {

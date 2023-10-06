@@ -8,12 +8,35 @@
     <% end %>
   </div>
   <hr/>
-  <% @visits.reverse().each do |visit| %>
-    <%= render visit %>
-    <p>
-      <% if can? :update, Visit %>
-        <%= link_to "+", visit %>
+  <div class="round-card">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Data</th>
+          <th scope="col">Visitante</th>
+          <th scope="col">Setor</th>
+          <th scope="col">Funcionario</th>
+          <th scope="col">Opções</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @visits.reverse().each do |visit| %>
+          <%#= render visit %>
+
+        <tr>
+          <td scope="row"> <%= visit.id %></td>
+          <td> <%= visit.visit_date %></td>
+          <td> <%= visit.visitor.name %></td>
+          <td> <%= visit.sector.name %></td>
+          <td> <%= visit.employee.name %></td>
+          <td>
+            <% if can? :update, Visit %>
+              <%= link_to "+", visit %>
+            <% end %></td>
+        </tr>
       <% end %>
-    </p>
-  <% end %>
+    </tbody>
+  </table>
+</div>
 </div>
